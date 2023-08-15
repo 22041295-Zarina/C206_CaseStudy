@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class AppointmentMain {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<Appointment> appointments = new ArrayList<>();
