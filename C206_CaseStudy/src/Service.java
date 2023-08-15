@@ -46,8 +46,4 @@ public class Service  {
 		this.price = newPrice;
 	}
 
-	public static void addService(ArrayList<Service> serviceList, Service s1) {
-		// TODO Auto-generated method stub
-		
-	}
 }
