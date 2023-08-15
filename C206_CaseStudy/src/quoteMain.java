@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+//create quote main
 public class quoteMain {
     public static void main(String[] args) {
         List<Quote> quotes = new ArrayList<>();

@@ -1,4 +1,4 @@
-
+//create quote class
 public class Quote {
 	private int spid;
 	private String responsedate;
