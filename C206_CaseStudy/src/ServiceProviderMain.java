@@ -40,7 +40,7 @@ public class ServiceProviderMain {
         System.out.print("Enter number of designers: ");
         int numberOfDesigners = scanner.nextInt();
         scanner.nextLine(); // Clear the newline character
-        System.out.print("Enter services (comma-separated): ");
+        System.out.print("Enter services:");
         String services = scanner.nextLine();
 
         return new ServiceProvider(nextId++, name, description, email, address, numberOfDesigners, services);
@@ -110,29 +110,25 @@ public class ServiceProviderMain {
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
 
-            switch (choice) {
-                case 1:
-                    scanner.nextLine(); // Clear the newline character
-                    ServiceProvider newServiceProvider = inputServiceProvider();
-                    addServiceProvider(newServiceProvider);
-                    break;
-                case 2:
-                    viewAllServiceProviders();
-                    break;
-                case 3:
-                    System.out.print("Enter the ID of the service provider to delete: ");
-                    int id = scanner.nextInt();
-                    deleteServiceProvider(id);
-                    break;
-                case 4:
-                    System.out.println("Exiting.");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+            if (choice == 1) {
+                ServiceProvider newServiceProvider = inputServiceProvider();
+                addServiceProvider(newServiceProvider);
+            } else if (choice == 2) {
+                viewAllServiceProviders();
+            } else if (choice == 3) {
+                System.out.print("Enter the ID of the service provider to delete: ");
+                int id = scanner.nextInt();
+                deleteServiceProvider(id);
+            } else if (choice == 4) {
+                System.out.println("Exiting.");
+            } else {
+                System.out.println("Invalid choice. Please try again.");
             }
+
             System.out.println();
         } while (choice != 4);
     }
+  
 
     public static void main(String[] args) {
         ServiceProviderMain serviceProviderMain = new ServiceProviderMain();
@@ -144,7 +140,5 @@ public class ServiceProviderMain {
     public List<ServiceProvider> getServiceProviders() {
         return serviceProviders;
     }
- 
-
 
 }
