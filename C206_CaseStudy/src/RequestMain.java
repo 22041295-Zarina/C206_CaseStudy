@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class RequestMain {
 
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final List<Request> requests = new ArrayList<>();
+    public static final Scanner scanner = new Scanner(System.in);
+    public static final List<Request> requests = new ArrayList<>();
 
     public static void main(String[] args) {
         while (true) {
@@ -39,7 +39,7 @@ public class RequestMain {
         }
     }
 
-    private static void addNewRequest() {
+    public static void addNewRequest() {
         System.out.print("Customer ID: ");
         String custID = scanner.nextLine();
         String requestDate;
@@ -63,12 +63,13 @@ public class RequestMain {
 
         System.out.print("Enter Budget: ");
         double budget = scanner.nextDouble();
+        scanner.nextLine(); // Consume the newline
 
         requests.add(new Request(custID, requestDate, description, estimatedStartDate, budget));
         System.out.println("Request added successfully.");
     }
 
-    private static void viewAllRequests() {
+    public static List<Request> viewAllRequests() {
         if (requests.isEmpty()) {
             System.out.println("No requests found.");
         } else {
@@ -84,9 +85,10 @@ public class RequestMain {
                 System.out.println("----------------------");
             }
         }
+        return requests;
     }
 
-    private static void deleteRequest() {
+    public static void deleteRequest() {
         if (requests.isEmpty()) {
             System.out.println("No requests to delete.");
         } else {
@@ -110,7 +112,7 @@ public class RequestMain {
         }
     }
 
-    private static boolean isValidDateFormat(String date) {
+    public static boolean isValidDateFormat(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);
         try {
